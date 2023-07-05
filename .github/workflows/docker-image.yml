@@ -3,6 +3,9 @@ name: New version of the C application
 on:
   release:
     types: [created]
+  push:
+    branches:
+      - main
 
 env:
   # Use docker.io for Docker Hub if empty
