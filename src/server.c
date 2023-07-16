@@ -58,9 +58,11 @@ int main(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         }
 
-        valread = read(new_socket, buffer, 1024);
+        valread = recv(new_socket, buffer, 1024, 0);
 
         if (valread == 0) {
+            printf("No data received\n");
+        } else if (valread == -1) {
             printf("Client disconnected\n");
             exit(EXIT_FAILURE);
         }
